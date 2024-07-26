@@ -1,0 +1,30 @@
+nelmio_api_doc:
+    documentation:
+        servers:
+          - url: http://api.example.com/unsafe
+            description: API over HTTP
+          - url: https://api.example.com/secured
+            description: API over HTTPS
+        info:
+            title: My App
+            description: This is an awesome app!
+            version: 1.0.0
+            x-build: #CommitHash
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            - Bearer: []
+    
+        html_config:
+            enable: true
+            swagger_ui: # Ensure swagger_ui is enabled within html_config
+                displayOperationId: true
+                docExpansion: none
+                filter: true
+                showExtensions: true
+                showCommonExtensions: true
+            default_swagger_ui_path: /api/doc

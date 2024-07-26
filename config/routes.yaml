@@ -1,0 +1,79 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+# config/routes.yaml
+# config/routes.yaml
+app.swagger_ui:
+    path: /api/doc
+    methods: GET
+    #  defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+    controller: 'App\Controller\ApiDocController::create'
+
+
+# User/Auth Endpoints
+api_register:
+    path: /api/v1/auth/register
+api_login_check:
+    path: /api/v1/auth/login_check
+
+
+# Products Endpoints
+
+app_product_index:
+   path: /api/v1/products
+   controller: 'App\Controller\ProductController::index'
+   methods: ['GET']
+
+
+app_product_get:
+   path: /api/v1/a-product-and-recommendation/{id}
+   controller: 'App\Controller\ProductController::get'
+   methods: ['GET']
+
+
+app_product_create:
+   path: /api/v1/products/create
+   controller: 'App\Controller\ProductController::create'
+   methods: ['POST']
+
+
+app_product_update:
+   path: /api/v1/product/{id}
+   controller: 'App\Controller\ProductController::update'
+   methods: ['PUT']
+
+
+app_product_delete:
+   path: /api/v1/product/delete/{id}
+   controller: 'App\Controller\ProductController::delete'
+   methods: ['DELETE']
+
+
+# Purchase Endpoints
+
+app_purchase_index:
+   path: /api/v1/purchases
+   controller: 'App\Controller\PurchaseController::listPurchases'
+   methods: ['GET']
+
+app_purchase_get:
+   path: /api/v1/purchases/{id}
+   controller: 'App\Controller\PurchaseController::getPurchase'
+   methods: ['GET']
+
+app_purchase_create:
+   path: /api/v1/purchases/create
+   controller: 'App\Controller\PurchaseController::createPurchase'
+   methods: ['POST']
+
+app_purchase_update:
+   path: /api/v1/purchases/{id}
+   controller: 'App\Controller\PurchaseController::updatePurchase'
+   methods: ['PUT']
+app_purchase_delete:
+   path: /api/v1/purchases/delete/{id}
+   controller: 'App\Controller\PurchaseController::deletePurchase'
+   methods: ['DELETE']
